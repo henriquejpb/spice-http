@@ -1,0 +1,16 @@
+{
+    "name": "henriquejpb/spice-http",
+    "description": "HTTP module from Spice framework",
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Henrique Barcelos",
+            "email": "rick.hjpbarcelos@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    }
+}
