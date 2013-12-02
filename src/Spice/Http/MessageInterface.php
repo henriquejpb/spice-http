@@ -15,6 +15,22 @@ namespace Spice\Http;
  */
 interface MessageInterface {
     /**
+     * Sets the HTTP version of the message.
+     *
+     * @param string $version one of the `Spice\Http\Version` constants.
+     *
+     * @return Spice\Http\MessageInterface fluent interface
+     */
+    public function setVersion($version);
+
+    /**
+     * Gets the HTTP version from the message.
+     *
+     * @return string one of the `Spice\Http\Version` constants
+     */
+    public function getVersion($version);
+
+    /**
      * Sets a HTTP header.
      *
      * @param string $name The header name.
