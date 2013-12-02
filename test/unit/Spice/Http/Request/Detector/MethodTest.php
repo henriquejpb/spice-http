@@ -3,18 +3,10 @@ namespace Spice\Http\Request\Detector;
 
 use Spice\Http\Request\RequestInterface;
 
-class MethodTest extends \PHPUnit_Framework_TestCase {
+class MethodTest extends AbstractDetectorTest {
     private function getDetector($method) {
         return new Method($method);
     }
-
-    private function getRequestMock($method) {
-        $request = $this->getMockForAbstractClass('\\Spice\\Http\\Request\\RequestInterface');
-        $request->expects($this->any())
-            ->method('getMethod')
-            ->will($this->returnValue($method));
-        return $request;
-    } 
 
     /**
      * @testdox Method `matches` returns true when request method is the same as expected.
