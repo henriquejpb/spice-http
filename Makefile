@@ -4,10 +4,10 @@ install:
 	composer install
 
 unittest:
-	cd tests/unit/ && phpunit --colors $(testobj)
+	cd test/unit/ && phpunit --colors $(testobj)
 
 ctags:
-	ctags -R --language-force=PHP src/ tests/unit/
+	ctags -R --language-force=PHP src/ test/unit/
 
 phpdoc:
 	phpdoc -d src/ -t docs/
