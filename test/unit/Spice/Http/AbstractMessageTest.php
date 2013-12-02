@@ -1,5 +1,5 @@
 <?php
-namespace Spice\Http\Request;
+namespace Spice\Http;
 
 use Spice\Testing\BaseTestCase;
 
@@ -15,6 +15,32 @@ class AbstractMessageTest extends BaseTestCase {
      */
     public function setUp() {
         $this->message = $this->getMessage();
+    }
+
+    /**
+     * @testdox Default HTTP version is set to HTTP/1.1
+     * @test
+     */
+    public function testDefaultHttpVersion() {
+        $this->assertEquals(Version::HTTP_1_1, $this->message->getVersion());
+    }
+
+    /**
+     * @testdox Properly sets the HTTP version for the message
+     * @test
+     */
+    public function testSetValidHttpVersion() {
+        $this->message->setVersion(Version::HTTP_1_0);
+        $this->assertAttributeEquals(Version::HTTP_1_0, 'version', $this->message);
+    }
+
+    /**
+     * @testdox Fails on trying to set an invalid HTTP version for the message
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetInvalidHttpVersionThrowsException() {
+        $this->message->setVersion('anything');
     }
 
     /**

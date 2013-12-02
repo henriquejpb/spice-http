@@ -20,6 +20,8 @@ interface MessageInterface {
      * @param string $version one of the `Spice\Http\Version` constants.
      *
      * @return Spice\Http\MessageInterface fluent interface
+     *
+     * @throws \InvalidArgumentException
      */
     public function setVersion($version);
 
@@ -28,7 +30,7 @@ interface MessageInterface {
      *
      * @return string one of the `Spice\Http\Version` constants
      */
-    public function getVersion($version);
+    public function getVersion();
 
     /**
      * Sets a HTTP header.

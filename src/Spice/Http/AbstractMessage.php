@@ -27,6 +27,39 @@ abstract class AbstractMessage implements MessageInterface {
     private $body;
 
     /**
+     * @var string the HTTP protocol version.
+     */
+    private $version;
+
+    /**
+     * Initializes a message.
+     *
+     * @param string $version one of the `Spice\Http\Version` constants.
+     */
+    public function __construct($version = Version::HTTP_1_1) {
+        $this->setVersion($version);
+    }
+
+    /**
+     * @{inherit-doc}
+     *
+     * @see Spice\Http\MessageInterface::getVersion()
+     */
+    public function getVersion() {
+        return $this->version;
+    }
+
+    public function setVersion($version) {
+        if (!in_array($version, array(
+            Version::HTTP_1_1,
+            Version::HTTP_1_0
+        ))) {
+            throw new \InvalidArgumentException("Invalid HTTP version '{$version}'");
+        }
+        $this->version = $version;
+    }
+
+    /**
      * @{inherit-doc}
      *
      * @param string $name the name of the header.
@@ -34,7 +67,7 @@ abstract class AbstractMessage implements MessageInterface {
      * @param string $value the value of the header. 
      *      It should be a string or an object that can be casted to a string.
      *
-     * @see Spice\Http\MessageInterface
+     * @see Spice\Http\MessageInterface::setHeader()
      */
     public function setHeader($name, $value) {
         $this->headers[$this->normalizeHeaderName($name)] = (string) $value;
