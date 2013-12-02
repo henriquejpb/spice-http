@@ -53,7 +53,17 @@ interface RequestInterface extends MessageInterface {
     public function is($detectorName);
 
     /**
-     * Returns an info about the request.
+     * Sets a server param to the request.
+     *
+     * @param string $pamaName the name of the parameter
+     * @param mixed $value the value of the parameter
+     *
+     * @return RequestInterface fluent interface
+     */
+    public function setServer($paramName, $value);
+
+    /**
+     * Returns a server param from the request.
      *
      * @param $paramName One of `$_SERVER` valid indexes
      * @param $default [OPTIONAL] The default value to return if `$varName`
@@ -62,6 +72,16 @@ interface RequestInterface extends MessageInterface {
      * @return string
      */
     public function getServer($paramName, $default = null);
+
+    /**
+     * Sets a query param to the request.
+     *
+     * @param string $pamaName the name of the parameter
+     * @param mixed $value the value of the parameter
+     *
+     * @return RequestInterface fluent interface
+     */
+    public function setQuery($paramName, $value);
 
     /**
      * Returns a single query string param.
@@ -74,6 +94,16 @@ interface RequestInterface extends MessageInterface {
     public function getQuery($paramName, $default = null);
 
     /**
+     * Sets a post param to the request.
+     *
+     * @param string $pamaName the name of the parameter
+     * @param mixed $value the value of the parameter
+     *
+     * @return RequestInterface fluent interface
+     */
+    public function setPost($paramName, $value);
+
+    /**
      * Returns a single post param.
      *
      * @param $paramName The name of the parameter
@@ -84,6 +114,16 @@ interface RequestInterface extends MessageInterface {
     public function getPost($paramName, $default = null);
 
     /**
+     * Sets a file param to the request.
+     *
+     * @param string $pamaName the name of the parameter
+     * @param mixed $value the value of the parameter
+     *
+     * @return RequestInterface fluent interface
+     */
+    public function setFile($paramName, $value);
+
+    /**
      * Returns a single file param (from multipart/form-data forms).
      *
      * @param $paramName The name of the parameter
@@ -92,6 +132,16 @@ interface RequestInterface extends MessageInterface {
      * @return mixed
      */
     public function getFile($paramName, $default = null);
+
+    /**
+     * Sets a route param to the request.
+     *
+     * @param string $pamaName the name of the parameter
+     * @param mixed $value the value of the parameter
+     *
+     * @return RequestInterface fluent interface
+     */
+    public function setRoute($paramName, $value);
 
     /**
      * Returns a single route param.
