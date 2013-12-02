@@ -14,6 +14,13 @@ use Spice\Http\Request\Detector\DetectorInterface;
  */
 interface RequestInterface extends MessageInterface {
     /**
+     * Returns the request URI.
+     *
+     * @return string
+     */
+    public function getUri();
+
+    /**
      * Returns the request method.
      *
      * @return string

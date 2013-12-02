@@ -20,7 +20,7 @@ interface MessageInterface {
      * @param string $name The header name.
      * @param mixed $value The header value.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
     public function setHeader($name, $value);
 
@@ -30,23 +30,23 @@ interface MessageInterface {
      * @param param $headers A key-value pair array, where the key is the
      *      header name and the value is the header value
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
-    public function setHeaders(array $headers);
+    public function setHeaders(array &$headers);
 
     /**
      * Unsets a HTTP header.
      *
      * @param string $name The header name.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
     public function unsetHeader($name);
 
     /**
      * Removes all HTTP headers.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
     public function clearHeaders();
 
@@ -75,9 +75,9 @@ interface MessageInterface {
      * @param mixed $content The content to append.
      * @param string $name A name for this part of the content.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
-    public function appendBody($content, $name = null);
+    public function appendBody($content);
 
     /**
      * Appends content to the response body.
@@ -85,16 +85,16 @@ interface MessageInterface {
      * @param string $content The content to preppend.
      * @param string $name A name for this part of the content.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
-    public function prependBody($content, $name = null);
+    public function prependBody($content);
 
     /**
      * Sets the content of the response body.
      *
      * @param mixed $content The content.
      *
-     * @return MessageInterface Fluent interface
+     * @return Spice\Http\MessageInterface Fluent interface
      */
     public function setBody($content);
 
@@ -108,7 +108,21 @@ interface MessageInterface {
     /**
      * Clears the response body content.
      * 
-     * @return MessageInterface Fluent interface.
+     * @return Spice\Http\MessageInterface Fluent interface.
      */
     public function clearBody();
+
+    /**
+     * Assembles the message creating a well-formed HTTP message.
+     * 
+     * @return string the assembled message
+     */
+    public function assemble();
+    
+    /**
+     * Convets the HTTP message to a string, by assembling it.
+     * 
+     * @return string the assembled message
+     */
+    public function __toString();
 }
