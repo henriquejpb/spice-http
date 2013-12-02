@@ -29,7 +29,6 @@ class AjaxTest extends AbstractDetectorTest {
     public function testMatchesReturnsFalseWhenHttpxRequestIsSetToAnyValueButXmlHttpRequest() {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
-        $request = $this->getRequestMock('post');
         $request->expects($this->any())
             ->method('getServer')
             ->with($this->equalTo('HTTP_X_REQUESTED_WITH'))
