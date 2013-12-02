@@ -9,11 +9,11 @@ namespace Spice\Http\Request\Detector;
 use Spice\Http\Request\RequestInterface;
 
 /**
- * Detector for HTTP request method.
+ * Detector for ajax requests.
  */
 class Ajax implements DetectorInterface {
     /**
-     * Returns `true` if the request method is the expected or `false` otherwise.
+     * Returns `true` if the request was made via a XmlHttpRequest object or `false` otherwise.
      *
      * @inherit-doc
      */
