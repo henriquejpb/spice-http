@@ -16,8 +16,8 @@ class FlashTest extends AbstractDetectorTest {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->any())
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_USER_AGENT'))
+            ->method('getHeader')
+            ->with($this->equalTo('USER-AGENT'))
             ->will($this->returnValue('shockwave flash'));
         $this->assertTrue($detector->matches($request));
     }
@@ -31,8 +31,8 @@ class FlashTest extends AbstractDetectorTest {
         $request = $this->getRequestMock('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->any())
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_USER_AGENT'))
+            ->method('getHeader')
+            ->with($this->equalTo('USER-AGENT'))
             ->will($this->returnValue('mozilla'));
         $this->assertFalse($detector->matches($request));
     }

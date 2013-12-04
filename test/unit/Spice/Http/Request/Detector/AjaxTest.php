@@ -16,8 +16,8 @@ class AjaxTest extends AbstractDetectorTest {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->any())
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_REQUESTED_WITH'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-REQUESTED-WITH'))
             ->will($this->returnValue('xmlhttprequest'));
         $this->assertTrue($detector->matches($request));
     }
@@ -30,8 +30,8 @@ class AjaxTest extends AbstractDetectorTest {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->any())
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_REQUESTED_WITH'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-REQUESTED-WITH'))
             ->will($this->returnValue(''));
         $this->assertFalse($detector->matches($request));
     }

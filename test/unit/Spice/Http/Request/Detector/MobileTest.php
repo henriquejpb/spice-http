@@ -27,7 +27,7 @@ class MobileTest extends AbstractDetectorTest {
     }
 
     /**
-     * @testdox Matches returns `true` when request 'HTTP_USER_AGENT' matches a mobile browser. 
+     * @testdox Matches returns `true` when request header 'USER-AGENT' matches a mobile browser. 
      * @dataProvider mobileProvider
      * @test
      */
@@ -35,22 +35,22 @@ class MobileTest extends AbstractDetectorTest {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->at(0))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_WAP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-WAP-PROFILE'))
             ->will($this->returnValue(false));
         $request->expects($this->at(1))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('PROFILE'))
             ->will($this->returnValue(false));
         $request->expects($this->at(2))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_USER_AGENT'))
+            ->method('getHeader')
+            ->with($this->equalTo('USER-AGENT'))
             ->will($this->returnValue($userAgent));
         $this->assertTrue($detector->matches($request));
     }
 
     /**
-     * @testdox Matches returns `false` when request 'HTTP_USER_AGENT' matches a desktop browser. 
+     * @testdox Matches returns `false` when request header 'USER-AGENT' matches a desktop browser. 
      * @dataProvider desktopProvider
      * @test
      */
@@ -58,49 +58,49 @@ class MobileTest extends AbstractDetectorTest {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->at(0))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_WAP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-WAP-PROFILE'))
             ->will($this->returnValue(false));
         $request->expects($this->at(1))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('PROFILE'))
             ->will($this->returnValue(false));
         $request->expects($this->at(2))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_USER_AGENT'))
+            ->method('getHeader')
+            ->with($this->equalTo('USER-AGENT'))
             ->will($this->returnValue($userAgent));
         $this->assertFalse($detector->matches($request));
     }
 
 
     /**
-     * @testdox Matches returns `true` when request 'HTTP_X_WAP_PROFILE' is set.
+     * @testdox Matches returns `true` when request header 'X-WAP-PROFILE' is set.
      * @test
      */
     public function testMatchesReturnsTrueWhenHttpXWapProfileIsSet() {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->once())
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_WAP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-WAP-PROFILE'))
             ->will($this->returnValue(true));
         $this->assertTrue($detector->matches($request));
     }
 
     /**
-     * @testdox Matches returns `true` when request 'HTTP_PROFILE' is set.
+     * @testdox Matches returns `true` when request header 'PROFILE' is set.
      * @test
      */
     public function testMatchesReturnsTrueWhenHttpProfileIsSet() {
         $detector = $this->getDetector('post');
         $request = $this->getRequestMock('post');
         $request->expects($this->at(0))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_X_WAP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('X-WAP-PROFILE'))
             ->will($this->returnValue(false));
         $request->expects($this->at(1))
-            ->method('getServer')
-            ->with($this->equalTo('HTTP_PROFILE'))
+            ->method('getHeader')
+            ->with($this->equalTo('PROFILE'))
             ->will($this->returnValue(true));
         $this->assertTrue($detector->matches($request));
     }

@@ -18,6 +18,6 @@ class Flash implements DetectorInterface {
      * @inherit-doc
      */
     public function matches(RequestInterface $request) {
-        return (bool) preg_match('/shockwave ?flash/i', $request->getServer('HTTP_USER_AGENT', false));
+        return (bool) preg_match('/shockwave ?flash/i', $request->getHeader('USER-AGENT', false));
     }
 }

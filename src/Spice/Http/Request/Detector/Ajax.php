@@ -18,6 +18,6 @@ class Ajax implements DetectorInterface {
      * @inherit-doc
      */
     public function matches(RequestInterface $request) {
-        return strtolower($request->getServer('HTTP_X_REQUESTED_WITH', false)) === 'xmlhttprequest';
+        return strtolower($request->getHeader('X-REQUESTED-WITH', false)) === 'xmlhttprequest';
     }
 }

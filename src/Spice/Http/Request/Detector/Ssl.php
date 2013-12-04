@@ -18,7 +18,7 @@ class Ssl implements DetectorInterface {
      * @inherit-doc
      */
     public function matches(RequestInterface $request) {
-        return strtolower($request->getServer('HTTPS', false)) === 'on'
-            || strtolower($request->getServer('HTTP_HTTPS', false)) === 'on';
+        /* return strtolower($request->getServer('HTTPS', false)) === 'on' */
+            /* || strtolower($request->getServer('HTTP_HTTPS', false)) === 'on'; */
     }
 }
