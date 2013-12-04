@@ -4,7 +4,7 @@
  *
  * @package Spice\Http
  */
-namespace Spice\Http;
+namespace Spice\Http\Request;
 
 /**
  * Enumeration with the 8 possible HTTP versions:
