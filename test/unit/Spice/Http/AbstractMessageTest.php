@@ -25,6 +25,14 @@ class AbstractMessageTest extends BaseTestCase {
         $this->assertEquals(Version::HTTP_1_1, $this->message->getVersion());
     }
 
+    /* /** */
+    /*  * @testdox Default HTTP scheme is set to 'http' */
+    /*  * @test */
+    /*  *1/ */
+    /* public function testDefaultHttpScheme() { */
+    /*     $this->assertEquals(Scheme::HTTP, $this->message->getScheme()); */
+    /* } */
+
     /**
      * @testdox Properly sets the HTTP version for the message
      * @test
@@ -173,4 +181,23 @@ class AbstractMessageTest extends BaseTestCase {
         $this->assertEmpty($this->message->getBody());
         $this->assertSame($this->message, $msg);
     }
+
+    /**
+     * @testdox Properly assembles message headers.
+     * @test
+     */
+    public function testAssembleHeaders() {
+        $expected = "Content-Type: text/html\r\nConnection: keep-alive\r\n"; 
+        $this->message->setHeader('content-type', 'text/html');
+        $this->message->setHeader('connection', 'keep-alive');
+
+        $this->assertEquals(
+            $expected, 
+            $this->invokeMethod(
+                $this->message, 
+                'assembleHeaders'
+            )
+        );
+    }
+
 }

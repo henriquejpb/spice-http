@@ -196,4 +196,17 @@ abstract class AbstractMessage implements MessageInterface {
         $name = ucwords(strtolower($name));
         return str_replace(' ', '-', $name);
     }
+
+    /**
+     * Assembles the request headers.
+     *
+     * @return string
+     */
+    protected function assembleHeaders() {
+        $output = '';
+        foreach ($this->headers as $name => &$value) {
+            $output .= "{$name}: {$value}\r\n"; 
+        }
+        return $output;
+    }
 }
