@@ -55,7 +55,7 @@ interface RequestInterface extends MessageInterface {
      *
      * @return boolean
      *
-     * @throws \OutOfBoundsException if there is no detector identified by `$detectorName`
+     * @throws \InvalidArgumentException if there is no detector identified by `$detectorName`
      */
     public function is($detectorName);
 }
