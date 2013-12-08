@@ -43,12 +43,6 @@ class Request extends AbstractMessage implements RequestInterface {
             throw new \DomainException("Invalid HTTP method '{$httpMethod}'");
         }
         
-        $refVersion = new \ReflectionClass('Spice\Http\Version');
-        $constants = $refVersion->getConstants();
-        if (!in_array(strtoupper($httpVersion), $constants)) {
-            throw new \DomainException("Invalid HTTP version '{$httpVersion}'");
-        }
-        
         $this->uri = $uri;
         $this->method = $httpMethod;
         parent::__construct($httpVersion);
