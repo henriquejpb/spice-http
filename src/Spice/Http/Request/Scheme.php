@@ -13,7 +13,7 @@ namespace Spice\Http\Request;
  * * HTTP
  *
  */
-interface SCHEME {
+interface Scheme {
     const HTTP = 'http';
     const HTTPS = 'https';
 }
