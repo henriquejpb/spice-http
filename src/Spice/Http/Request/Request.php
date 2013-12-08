@@ -1,10 +1,18 @@
 <?php
+/**
+ * Default implementation for HTTP Request objects.
+ *
+ * @package Spice\Http\Request
+ */
 namespace Spice\Http\Request;
 
 use Spice\Http\AbstractMessage;
 use Spice\Http\Version;
 use Spice\Http\Request\Detector\DetectorInterface;
 
+/**
+ * Represents an HTTP Request.
+ */
 class Request extends AbstractMessage implements RequestInterface {
     /**
      * @var string the URI of the request
