@@ -138,4 +138,4 @@ $response->setHeader('content-type', 'application/json');
 $response->appendBody(json_encode(...));
 ```
 
-  [1]http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec
+  [1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec)
