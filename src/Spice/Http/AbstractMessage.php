@@ -43,12 +43,17 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::getVersion()
+     * @see \Spice\Http\MessageInterface::getVersion()
      */
     public function getVersion() {
         return $this->version;
     }
 
+    /**
+     * @{inherit-doc}
+     * 
+     * @see \Spice\Http\MessageInterface::setVersion()
+     */
     public function setVersion($version) {
         if (!in_array($version, array(
             Version::HTTP_1_1,
@@ -67,7 +72,7 @@ abstract class AbstractMessage implements MessageInterface {
      * @param string $value the value of the header. 
      *      It should be a string or an object that can be casted to a string.
      *
-     * @see Spice\Http\MessageInterface::setHeader()
+     * @see \Spice\Http\MessageInterface::setHeader()
      */
     public function setHeader($name, $value) {
         $this->headers[$this->normalizeHeaderName($name)] = (string) $value;
@@ -89,7 +94,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::getHeader()
+     * @see \Spice\Http\MessageInterface::getHeader()
      */
     public function getHeader($name, $default = null) {
         $name = $this->normalizeHeaderName($name);
@@ -101,7 +106,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::getHeader()
+     * @see \Spice\Http\MessageInterface::getHeader()
      */
     public function getAllHeaders() {
         return $this->headers; 
@@ -110,7 +115,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::getHeader()
+     * @see \Spice\Http\MessageInterface::getHeader()
      */
     public function unsetHeader($name) {
         $name = $this->normalizeHeaderName($name);
@@ -123,7 +128,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::clearHeaders()
+     * @see \Spice\Http\MessageInterface::clearHeaders()
      */
     public function clearHeaders() {
         $this->headers = array();
@@ -133,7 +138,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::setBody()
+     * @see \Spice\Http\MessageInterface::setBody()
      */
     public function setBody($content) {
         $this->body = (string) $content;
@@ -143,7 +148,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::getBody()
+     * @see \Spice\Http\MessageInterface::getBody()
      */
     public function getBody() {
         return $this->body;
@@ -152,7 +157,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::appendBody()
+     * @see \Spice\Http\MessageInterface::appendBody()
      */
     public function appendBody($content) {
         $this->body .= $content;
@@ -162,7 +167,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::prependBody()
+     * @see \Spice\Http\MessageInterface::prependBody()
      */
     public function prependBody($content) {
         $this->body = $content . $this->body;
@@ -172,7 +177,7 @@ abstract class AbstractMessage implements MessageInterface {
     /**
      * @{inherit-doc}
      *
-     * @see Spice\Http\MessageInterface::prependBody()
+     * @see \Spice\Http\MessageInterface::prependBody()
      */
     public function clearBody() {
         $this->body = '';
