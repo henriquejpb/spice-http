@@ -97,45 +97,45 @@ Default detectors:
  - `Flash`: detects if a request was made by a flash object
  - `Method`: detects if a request has a specified method.
  
- ### Spice\Http\Response
+### Spice\Http\Response
  
- #### Spice\Http\Response\ResponseInterface
- Represents an HTTP server response.
+#### Spice\Http\Response\ResponseInterface
+Represents an HTTP server response.
  
- The default implementation is `Spice\Http\Response\Response`.
+The default implementation is `Spice\Http\Response\Response`.
  
- #### Spice\Http\Response\Status
- Enumeration containing HTTP response statuses in the format `<status_code> <status_phrase>`.
+#### Spice\Http\Response\Status
+Enumeration containing HTTP response statuses in the format `<status_code> <status_phrase>`.
  
- ___
+___
  
- **Usage:**
+**Usage:**
  
- `Spice\Http\Response\Response` has no mandatory parameters. By default it's created an `200 Ok` response using HTTP 1.1.
+`Spice\Http\Response\Response` has no mandatory parameters. By default it's created an `200 Ok` response using HTTP 1.1.
  
- ```php
- use Spice\Http\Response\Response;
- use Spice\Http\Response\Status;
- use Spice\Http\Version;
+```php
+use Spice\Http\Response\Response;
+use Spice\Http\Response\Status;
+use Spice\Http\Version;
  
- // Creates a '200 Ok' response using HTTP 1.1
- $response = new Response(Status::OK); // This parameter is optional
- 
- // Creates a '404 Not Found' response using HTTP 1.1
- $response = new Response(Status::NOT_FOUND);
- 
- // Creates a '404 Not Found' response using HTTP 1.0
- $response = new Response(Status::NOT_FOUND, Version::HTTP_1_0);
- 
- // Creating a HTML response for the current request:
- $response = new Response();
- $response->setHeader('content-type', 'text/html;charset=UTF-8');
- $response->appendBody('<!doctype html>(...)');
- 
- // Creating a  JSON response for the current request:
- $response = new Response();
- $response->setHeader('content-type', 'application/json');
- $response->appendBody(json_encode(...));
- ```
- 
+// Creates a '200 Ok' response using HTTP 1.1
+$response = new Response(Status::OK); // This parameter is optional
+
+// Creates a '404 Not Found' response using HTTP 1.1
+$response = new Response(Status::NOT_FOUND);
+
+// Creates a '404 Not Found' response using HTTP 1.0
+$response = new Response(Status::NOT_FOUND, Version::HTTP_1_0);
+
+// Creating a HTML response for the current request:
+$response = new Response();
+$response->setHeader('content-type', 'text/html;charset=UTF-8');
+$response->appendBody('<!doctype html>(...)');
+
+// Creating a  JSON response for the current request:
+$response = new Response();
+$response->setHeader('content-type', 'application/json');
+$response->appendBody(json_encode(...));
+```
+
   [1]http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec
