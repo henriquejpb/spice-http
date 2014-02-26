@@ -1,2 +1,5 @@
 /vendor/
 /test/log/
+/.settings
+/.buildpath
+/.project
