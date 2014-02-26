@@ -67,7 +67,6 @@ $request = new Request('/', Method::POST);
 
 // Creates a POST request to the web root of the application using HTTP 1.0
 $request = new Request('/', Method::POST, Version::HTTP_1_0);
-```
 
 // Creates a POST request with the current GET parameters:
 $request = new Request('/', Method::POST);
@@ -75,6 +74,8 @@ $request = new Request('/', Method::POST);
 // mandatory if sending url encoded query string in the body
 $request->setHeader('content-type', 'application/x-www-form-urlencoded'); 
 $request->appendBody(http_build_query($_GET));
+
+```
 ___
 
 #### Detectors
