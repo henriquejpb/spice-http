@@ -11,7 +11,7 @@ However, it does validates essencial parts of the protocol, such as version and 
 
 In other words, this implementation assumes that the programmer knows the basics of HTTP protocol and its messages.
 
-For more details, refer to the [RFC][1].
+For more details, refer to the [RFC](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec).
 
 ## Components
 
@@ -137,5 +137,3 @@ $response = new Response();
 $response->setHeader('content-type', 'application/json');
 $response->appendBody(json_encode(...));
 ```
-
-  [1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec)
