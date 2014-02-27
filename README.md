@@ -2,12 +2,12 @@
 
 HTTP module of the Spice framework.
 
-This module attepmts to represent some HTTP components as PHP Objects in order to ease request handling.
+This module attempts to represent some HTTP components as PHP Objects in order to ease request handling.
 
 For performance and simplicity sake, this implementation is as basic as it can be. 
 Therefore, no validation is done on headers names or values, for example.
 
-However, it does validates essencial parts of the protocol, such as version and structure.
+However, it does validates essential parts of the protocol, such as version and structure.
 
 In other words, this implementation assumes that the programmer knows the basics of HTTP protocol and its messages.
 
@@ -16,12 +16,12 @@ For more details, refer to the [RFC](http://www.w3.org/Protocols/rfc2616/rfc2616
 ## Components
 
 ### Spice\Http\MessageInterface
-Represents the common behaviour of both HTTP requests and reponses, such as setting headers and body content.
+Represents the common behaviour of both HTTP requests and responses, such as setting headers and body content.
 
 #### Considerations about headers
 Like explained before, no checks will be done in headers names or values. It's up to the programmer to set proper headers, observing HTTP versions differences.
 
-When setting headers, try to use hyphenized lowercase names like `'content-type'`, altough the following formats and its variations are also accepted:
+When setting headers, try to use hyphenised lowercase names like `'content-type'`, although the following formats and its variations are also accepted:
 
  - `'Content-Type'`
  - `'Content_Type'`
