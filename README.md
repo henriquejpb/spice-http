@@ -1,6 +1,6 @@
 # spice-http [![Build Status](https://travis-ci.org/hjpbarcelos/spice-http.png?branch=master)](https://travis-ci.org/henriquejpb/spice-http)
 
-HTTP module of the Spice framework.
+HTTP module from Spice framework.
 
 This module attempts to represent some HTTP components as PHP Objects in order to ease request handling.
 
